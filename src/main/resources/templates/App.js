@@ -1,4 +1,6 @@
+
 const buttonSend = document.querySelector('#btnSend');
+const textAreaResponse = document.getElementById("response");
 
 const fetchResponse = async (body) => {
 
@@ -27,19 +29,30 @@ buttonSend.addEventListener("click", async () => {
     if(mailContent == null || mailContent === "" ){
         return
     }
+
     const tone = document.getElementById("toneSelection").value
+
     const response =  await fetchResponse(buildBody(mailContent, tone))
 
-    const responseElement = document.getElementById("response");
-    if (responseElement) {
-        responseElement.value = response;
+
+
+    if (textAreaResponse) {
+
+        textAreaResponse.value = response;
     }
 
+
 });
-/*
-* "mailContent": "Hola como andas, te escribo ya que me debias la renta",
-    "tone": "CASUAL"
-* */
+
+const copyContent = async () => {
+    try {
+        await navigator.clipboard.writeText(textAreaResponse.value);
+        console.log('Content copied to clipboard');
+    } catch (err) {
+        console.error('Failed to copy: ', err);
+    }
+}
+
 const buildBody = (mailContent,tone)=>{
     let body = {
         mailContent: mailContent,

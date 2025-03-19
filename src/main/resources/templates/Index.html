@@ -9,22 +9,21 @@
 </head>
 <body>
     <main>
-        <section class="seccion">
-            <h1>Mail writer</h1>
-            <textarea class="form-control" id="textAreaInput" rows="3"></textarea>
-
-            <select id="toneSelection" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+        <h1 > Mail Generator</h1>
+        <div class="seccion">
+            <textarea class="form-control" id="textAreaInput" rows="3" data-bs-theme="dark" ></textarea>
+            <select id="toneSelection" class="form-select" aria-label="Default select example" data-bs-theme="dark">
+                <option selected>Seleccioná el tono</option>
                 <option value="CASUAL">Casual</option>
                 <option value="FORMAL">Formal</option>
                 <option value="INFORMAL">Informal</option>
                 <option value="NEUTRAL">Neutral</option>
             </select>
 
-            <button type="button" class="btn btn-primary" id="btnSend">Enviar</button>
-            <input id="response" type="text" readonly>
-
-        </section>
+            <button type="button" class="btn btn-dark" id="btnSend" data-bs-theme="dark">Enviar</button>
+            <textarea id="response" type="text" readonly data-bs-theme="dark"></textarea>
+            <button type="button" class="btn btn-dark" onclick="copyContent()" id="btnCopy" data-bs-theme="dark">Copy</button>
+        </div>
     </main>
     <script src="App.js"></script>
 </body>
