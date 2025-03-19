@@ -46,7 +46,7 @@ public class EmailGeneratorService {
     private String buildPrompt(EmailRequest emailRequest){
         StringBuilder prompt = new StringBuilder();
 
-        prompt.append("Generate a professional email reply for the following email ");
+        prompt.append("Generate a professional email reply for the following email, must be in Spanish");
         if(emailRequest.tone() != null && !emailRequest.mailContent().isEmpty()){
             prompt.append("Use a ").append( emailRequest.tone() ).append(" tone");
         }
